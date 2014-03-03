@@ -97,6 +97,28 @@ public class SingleLinkedList {
 		return null;
 	}
 	
+	public Node findNthToLast(int nth) {
+		// usage: if n=3, return 3rd to last node, first to last means one before last.
+		// if nth to last is past the 0th node, return the 0th node.
+		Node leadptr = head;
+		Node nthptr = head;
+		// advance nth places
+		int i=0;
+		while (leadptr.next != null) {
+			if (i >= nth) {
+				break;
+			}
+			leadptr = leadptr.next;
+			i++;
+		}
+		while (leadptr.next != null) {
+			nthptr = nthptr.next;
+			leadptr = leadptr.next;
+		}
+		return nthptr;
+		
+	}
+	
 	public void reverse() {
 		Node n = head;
 		Node prev = null;

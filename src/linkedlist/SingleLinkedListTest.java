@@ -63,6 +63,17 @@ public class SingleLinkedListTest {
 	}
 
 	@Test
+	public void testFindNthToLast() {
+		addNodes(10);
+		SingleLinkedList.Node n = llist.findNthToLast(2);
+		assertEquals(7, n.data);		
+		n = llist.findNthToLast(0);
+		assertEquals(9, n.data);		
+		n = llist.findNthToLast(20);
+		assertEquals(0, n.data);		
+	}
+
+	@Test
 	public void testReverse() {
 		addNodes(10);
 		llist.reverse();
